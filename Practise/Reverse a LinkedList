@@ -1,0 +1,14 @@
+public static List<Integer> reverseLL(LinkedList head) {
+        Stack<Integer> st = new Stack<>();
+        List<Integer> l = new ArrayList<>();
+        LinkedList temp = head;
+        while(temp!=null) {
+            st.push(temp.data);
+            temp = temp.next;
+        }
+        
+        while(!st.empty()) {
+            l.add(st.pop());
+        }
+        return l;
+    }
