@@ -1,0 +1,49 @@
+import java.util.*;
+class Main 
+{
+    
+   static Stack<Integer> stk1=new Stack<>();
+    static Stack<Integer> stk2=new Stack<>();
+    
+    public static void init()
+    {
+        
+    }
+    
+    public static void enqueue(int x)
+    {
+        stk1.push(x);
+    }
+    public static int dequeue()
+    {
+        
+        if(stk2.empty() && !stk1.isEmpty())
+        {
+            
+            while(!stk1.isEmpty())
+            {
+                stk2.push(stk1.pop());
+            }
+        }
+        if(stk2.isEmpty() && stk1.isEmpty())
+            return -1;
+        
+         return stk2.pop();
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        init();
+        int n = sc.nextInt();
+        while(n-->0){
+            int x= sc.nextInt();
+            if(x==1){
+                int val = sc.nextInt();
+                enqueue(val);
+            }
+            else{
+                System.out.print(dequeue() + " ");
+            }
+        }
+    }
+}
